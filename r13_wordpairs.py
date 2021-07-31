@@ -11,6 +11,7 @@ def rot13(char):
 
 words = words.words()
 for word in words:
-    new = "".join([rot13(char) for char in word.lower()])
-    if new in words:
-        print(word,"  ->  ",new)
+    print("".join([rot13(char) for char in word.lower()]))
+#for word in words:
+    #new = "".join([rot13(char) for char in word])
+    #print(word,"  ->  ",new)

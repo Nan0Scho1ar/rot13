@@ -1,21 +1,17 @@
 #!/usr/bin/env python
 import sys
 
-def r13(char):
+def rot13(char):
     letters = 'abcdefghijklmnopqrstuvwxyz'
     if char not in letters:
         return char
     idx = letters.index(char)
     return letters[idx - 13] if idx > 12 else letters[idx + 13]
 
-
-a = " ".join(sys.argv[1:])
-a2 = "".join([r13(char) for char in [line for line in a]])
-a3 = "".join([r13(char) for char in [line for line in a2]])
-print(a)
-print(a2)
-print(a3)
-
+with open("newdict.txt", "r") as f:
+    with open("rotdict.txt", "w") as o:
+        for word in f.readlines():
+            o.write("".join([rot13(char) for char in word.lower()]))
 
 # 4 state cycle
 # 0 -> 2 -> 0
