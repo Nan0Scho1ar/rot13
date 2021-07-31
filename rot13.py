@@ -12,7 +12,7 @@ def r13(char):
 
 # Rot13 alg for both lowercase and uppercase
 def rot13(char):
-    return r13(char.tolower()).toupper() if char.isupper() else r13(char)
+    return r13(char.lower()).upper() if char.isupper() else r13(char)
 
 # Apply Rot13 alg to a file
 with open(sys.argv[1], "r+") as f:
