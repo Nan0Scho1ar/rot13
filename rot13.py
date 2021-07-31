@@ -4,7 +4,7 @@ import sys
 
 # Rot13 alg for lowercase chars
 def r13(char):
-    letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+    letters = 'abcdefghijklmnopqrstuvwxyz'
     if char not in letters:
         return char
     idx = letters.index(char)
