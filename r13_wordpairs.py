@@ -1,17 +1,17 @@
 #!/usr/bin/env python
-
 from nltk.corpus import words
 
-def rot13(char):
-    letters = 'abcdefghijklmnopqrstuvwxyz'
-    if char not in letters:
-        return char
-    idx = letters.index(char)
-    return letters[idx - 13] if idx > 12 else letters[idx + 13]
+letters = 'abcdefghijklmnopqrstuvwxyz'
+
+# Rot13 alg for lowercase chars
+def r13(char):
+    return letters[(letters.index(char) + 13) % 26] if char in letters else char
+
+# Rot13 alg for both lowercase and uppercase on whole lines
+def rot13(lines):
+    return "".join([r13(char.lower()).upper() if char.isupper() else r13(char) for char in [line for line in lines]])
+
 
 words = words.words()
 for word in words:
-    print("".join([rot13(char) for char in word.lower()]))
-#for word in words:
-    #new = "".join([rot13(char) for char in word])
-    #print(word,"  ->  ",new)
+    print(rot13(word.lower()))
